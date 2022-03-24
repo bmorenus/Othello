@@ -1,0 +1,83 @@
+-AI Move Descriptions
+
+The AI in this Othello game operates on three separate difficult levels: easy,
+intermediate, and hard. This section details the move selection criteria of
+each difficulty level:
+
+    Easy: The easy AI difficult selects a random move from the list of legal
+        moves presented to the move selection function of the Computer class.
+        This represents the most basic selection criteria, not using any type
+        of critera for selecting a particular move except for random chance.
+
+    Intermediate: The intermediate AI selects a move based on a greedy
+        algorithm implementation. This algorithm examines each legal move
+        available to the computer AI on a given turn and identifies the move
+        that flips the most tiles of the human player. Once the legal move
+        with the highest flips is identified, that move is selected and
+        executed.
+
+    Hard: The hard AI implements a type of minimax algorithm that attempts to
+        maximize the end-game tiles of the computer while minimizing the end
+        game tiles of the player. It accomplishes this by implementing a
+        mutally recursive algorithm that examines all possible game boards
+        produced by all possible legal moves to a pre-determined
+        recursive-depth that is set based on available computation time. At 
+        each level of recursion, the algorithm selects a 'best move' based on
+        several criteria. 
+        
+            The following criteria add to a computer's move value:
+                1. The move places a white tile on a corner square
+                2. The move places a white tile on an edge square
+                3. The move flips a higher number of tiles to the color white
+                4. The move flips a black tile that is diagonal to the board's
+                    corner squares
+                5. The move increases the chances of the human player placing
+                    a black tile in a square adjacent to an empty corner square
+                    (known as an x-square)
+        
+            The following criteria detract from a computer's move value:
+                1. The move permits the human player to place a tile in a
+                    corner square
+                2. The move permits the human player to place a tile in an
+                    edge square
+                3. The move flips a higher number of tiles to the color black
+                4. The move places a white tile on an x-square when the
+                    associated corner square is empty
+                5. The move flips a black tile that is located within an
+                    x-square when the associated corner square is empty
+            
+        After the existence of each condition is identified, the legal move's
+        associated move_value attribute is adjusted accordingly based on
+        floating point values assigned to each condition. These values
+        subsequently adjust the overall move_value attribute of the legal move.
+        The legal move is then compared with every other legal move that exists
+        at that respective recursion depth and the 'best move' is returned.
+        The best legal move is then compared to the other best legal moves at
+        a higher recursion depth where the best_move variable is further
+        calibrated. Once the recursion is complete, a final best_move is
+        returned and executed by the computer AI.
+
+-Was this AI implementation successful?
+
+I believe I successfully implmented all 3 AI difficulty levels. At the hard
+difficulty, the computer successsfuly examines all conditions of a given
+legal move and chooses the appropriate move based on those conditions.
+
+-How often did your computer AI beat you and other AI implementations?
+
+Once it was fully implemented, the hard AI successfully beat the easy and
+intermediate difficulty AIs 100% of the time with a score difference that often
+exceeded over 30 tiles. I was able to beat the hard AI fairly regularly since
+I knew the preferred strategy of the game and blind spots in the AI's
+decision-making. This allowed me to take advantage of small, tactical 
+shortcomings in the AI and beat it at its own strategy.
+
+-How would I improve the hard AI algorithm in the future?
+
+I would continue to further refine the heuristics of the algorithm and the
+move selection values associated with the selection conditions. I would also
+add a broader feature that would permit the computer to systemically examine 
+the state of a larger number of board squares surrounding the legal move square
+to gain better board context and permit the implementation of a more robust
+decision-tree. This would allow the AI to better identify tile flips in other
+'hot spots' on the board in a manner similar to the x-square conditionals.
