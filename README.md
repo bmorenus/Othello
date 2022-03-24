@@ -12,7 +12,7 @@ development environment to render the game graphics on the monitor.
 the mode adjuster in the top right corner of the screen.
 
 3. Open the pythonGame directory within Processing 3, click on othello_game.pyde file
-within that directory,and run the program by clicking the play arrow in 
+within that directory, and run the program by clicking the play arrow in 
 the top left corner of the screen.
 
 4. Enter you player information, indicate whether you would like user hints
