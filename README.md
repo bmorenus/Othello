@@ -5,7 +5,7 @@ development environment to render the game graphics on the monitor.
 
 ## Please follow the following checklist to get started:
 
-1. Download Processing 3 from the Github link below:
+1. Download Processing 3 from the Github link:
     https://github.com/processing/processing/releases/tag/processing-0270-3.5.4
 
 2. Run Processing 3 and once the screen appears, set it to Python mode with
