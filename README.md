@@ -18,3 +18,41 @@ the top left corner of the screen.
 4. Enter you player information, indicate whether you would like user hints
 and select your game difficulty. Please read AI.txt for a full description of
 the different game difficulties and the mechanics behind them.
+
+## AI Implementation
+
+The AI in this Othello game operates on three separate difficult levels: easy,
+intermediate, and hard. This section details the move selection criteria of
+each difficulty level:
+
+    Easy: The easy AI difficult selects a random move from the list of legal
+        moves presented to the move selection function of the Computer class.
+        This represents the most basic selection criteria, not using any type
+        of critera for selecting a particular move except for random chance.
+
+    Intermediate: The intermediate AI selects a move based on a greedy
+        algorithm implementation. This algorithm examines each legal move
+        available to the computer AI on a given turn and identifies the move
+        that flips the most tiles of the human player. Once the legal move
+        with the highest flips is identified, that move is selected and
+        executed.
+
+    Hard: The hard AI implements a type of minimax algorithm that attempts to
+        maximize the end-game tiles of the computer while minimizing the end
+        game tiles of the player. It accomplishes this by implementing a
+        mutally recursive algorithm that examines all possible game boards
+        produced by all possible legal moves to a pre-determined
+        recursive-depth that is set based on available computation time. At 
+        each level of recursion, the algorithm selects a 'best move' based on
+        several criteria further detailed in ai.txt 
+            
+        After the existence of each condition is identified, the legal move's
+        associated move_value attribute is adjusted accordingly based on
+        floating point values assigned to each condition. These values
+        subsequently adjust the overall move_value attribute of the legal move.
+        The legal move is then compared with every other legal move that exists
+        at that respective recursion depth and the 'best move' is returned.
+        The best legal move is then compared to the other best legal moves at
+        a higher recursion depth where the best_move variable is further
+        calibrated. Once the recursion is complete, a final best_move is
+        returned and executed by the computer AI.
