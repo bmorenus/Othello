@@ -15,7 +15,7 @@ the mode adjuster in the top right corner of the screen.
 within that directory, and run the program by clicking the play arrow in 
 the top left corner of the screen.
 
-4. Enter you player information, indicate whether you would like user hints
+4. Enter your player information, indicate whether you would like user hints
 and select your game difficulty. Please read AI.txt for a full description of
 the different game difficulties and the mechanics behind them.
 
